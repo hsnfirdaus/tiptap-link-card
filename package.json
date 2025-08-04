@@ -1,0 +1,13 @@
+{
+  "name": "link-card-monorepo",
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  },
+  "trustedDependencies": [
+    "@tailwindcss/oxide",
+    "esbuild"
+  ],
+  "workspaces": [
+    "packages/*"
+  ]
+}

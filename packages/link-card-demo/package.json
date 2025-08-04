@@ -1,0 +1,25 @@
+{
+  "name": "link-card-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/prismjs": "^1.26.5",
+    "tailwindcss": "^4.1.11",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "@tiptap/core": "^3.0.9",
+    "@tiptap/pm": "^3.0.9",
+    "@tiptap/starter-kit": "^3.0.9",
+    "prismjs": "^1.30.0",
+    "tiptap-link-card": "workspace:^"
+  }
+}

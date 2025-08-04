@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TipTap Link Card</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="bg-slate-100">
+    <header class="text-center py-10">
+      <h1 class="text-3xl font-bold text-slate-800">TipTap Link Card</h1>
+      <h2 class="text-slate-600 mt-2 mb-5">
+        Link Card Extension for TipTap Editor
+      </h2>
+      <a
+        href="//github.com/hsnfirdaus/tiptap-link-card"
+        class="inline-flex items-center bg-purple-500 font-bold h-10 text-white uppercase px-4 rounded-xl shadow-xl shadow-purple-300 hover:bg-purple-600"
+        >Visit GitHub</a
+      >
+    </header>
+    <div class="bg-white min-h-64 rounded-xl max-w-screen-md mx-auto shadow-xl">
+      <div class="flex gap-2 mb-2 p-4 items-center">
+        <label for="url" class="text-slate-700">Enter URL:</label>
+        <input
+          type="text"
+          id="url"
+          class="border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          placeholder="https://example.com"
+        />
+        <button
+          id="add-link-card"
+          class="bg-purple-500 font-bold h-10 text-white uppercase px-4 rounded-lg cursor-pointer"
+        >
+          Add Link Card
+        </button>
+      </div>
+      <div id="tiptap" class="p-4"></div>
+    </div>
+    <div class="text-center my-6">
+      <button
+        id="show-result"
+        class="bg-purple-500 font-bold h-10 text-white uppercase px-4 rounded-xl shadow-xl shadow-purple-300 hover:bg-purple-600"
+      >
+        Show Result
+      </button>
+    </div>
+    <div
+      id="result-container"
+      class="hidden bg-white p-2 rounded-xl max-w-screen-md mx-auto shadow-xl"
+    >
+      <pre id="result" class="max-w-full overflow-x-auto"></pre>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
