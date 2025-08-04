@@ -1,10 +1,15 @@
 {
   "name": "tiptap-link-card",
+  "private": false,
   "version": "0.0.1",
   "description": "Link Card Block for TipTap Editor",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "license": "MIT",
   "keywords": [
     "tiptap",
@@ -18,8 +23,9 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && rollup -c",
-    "dev": "npm run clean && rollup -c -w"
+    "build": "bun run clean && rollup -c",
+    "dev": "bun run clean && rollup -c -w",
+    "prepack": "bun run build"
   },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.3",

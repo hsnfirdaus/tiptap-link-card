@@ -29,7 +29,7 @@ type LinkCardCommand<ReturnType> = {
   /**
    * Insert a link card
    * @param options The link card attributes
-   * @example editor.commands.setLinkCard({ href: 'https://example.com', title: 'Example', description: 'An example link', image: { src: 'https://example.com/image.png' } })
+   * @example editor.commands.setLinkCard({ href: 'https://example.com', title: 'Example', description: 'An example link', imageSrc: 'https://example.com/image.png' })
    */
   setLinkCard: (options: SetLinkCardOptions) => ReturnType;
 
