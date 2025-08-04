@@ -1,7 +1,8 @@
 name: Publish Package to npmjs
 on:
-  tags:
-    - v*
+  push:
+    tags:
+      - v*
 
 jobs:
   build:
@@ -29,7 +30,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref }}
           files: ./packages/tiptap-link-card/tiptap-link-card.tgz
