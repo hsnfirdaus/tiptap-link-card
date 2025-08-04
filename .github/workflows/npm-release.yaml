@@ -30,6 +30,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref }}
+          name: ${{ github.ref }}
           files: ./packages/tiptap-link-card/tiptap-link-card.tgz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
