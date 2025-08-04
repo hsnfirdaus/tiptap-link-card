@@ -27,7 +27,7 @@ jobs:
         working-directory: ./packages/tiptap-link-card
         run: bun publish --access public ./tiptap-link-card.tgz
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
