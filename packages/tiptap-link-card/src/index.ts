@@ -9,11 +9,24 @@ export type SetLinkCardOptions = {
 
 export interface LinkCardOptions {
   /**
+   * Controls if the link card should open on click.
+   * @default true
+   * @example false
+   */
+  openOnClick: boolean;
+  /**
    * Controls if the paste handler for any url should be added.
    * @default false
    * @example true
    */
-  addPasteHandler: boolean;
+  linkOnPaste: boolean;
+
+  /**
+   * HTML attributes to add to the link element.
+   * @default {}
+   * @example { class: 'foo' }
+   */
+  HTMLAttributes: Record<string, any>;
 
   /**
    * Resolves the link card data from a URL.
@@ -60,8 +73,10 @@ const LinkCard = Node.create<LinkCardOptions>({
 
   addOptions() {
     return {
-      addPasteHandler: false,
+      openOnClick: true,
+      linkOnPaste: false,
       dataResolver: null,
+      HTMLAttributes: {},
     };
   },
 
@@ -151,7 +166,7 @@ const LinkCard = Node.create<LinkCardOptions>({
   },
 
   addPasteRules() {
-    if (!this.options.addPasteHandler || !this.options.dataResolver) {
+    if (!this.options.linkOnPaste || !this.options.dataResolver) {
       return [];
     }
 
@@ -199,11 +214,21 @@ const LinkCard = Node.create<LinkCardOptions>({
 
   addNodeView() {
     return ({ editor, node, getPos }) => {
-      const root = document.createElement("a");
+      const root = document.createElement(
+        this.options.openOnClick ? "a" : "div"
+      );
+      const attributes = this.options.HTMLAttributes;
+      Object.keys(attributes).forEach((key) => {
+        root.setAttribute(key, attributes[key]);
+      });
       root.classList.add("link-card");
-      root.setAttribute("href", node.attrs.href || "#");
-      root.setAttribute("target", "_blank");
-      root.setAttribute("rel", "noopener noreferrer");
+      if (this.options.openOnClick) {
+        root.setAttribute("href", node.attrs.href || "#");
+        root.setAttribute("target", "_blank");
+        root.setAttribute("rel", "noopener noreferrer");
+      } else {
+        root.setAttribute("data-href", node.attrs.href || "#");
+      }
 
       if (node.attrs.imageSrc) {
         const figure = document.createElement("figure");

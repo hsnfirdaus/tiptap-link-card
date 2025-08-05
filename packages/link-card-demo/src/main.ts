@@ -17,8 +17,12 @@ const editor = new Editor({
       },
     }),
     LinkCard.configure({
-      addPasteHandler: true,
+      linkOnPaste: true,
+      openOnClick: false,
       dataResolver: extractData,
+      HTMLAttributes: {
+        class: "data-hasan",
+      },
     }),
   ],
   content: defaultContent,
